@@ -6,13 +6,13 @@ const port = 4000
 
 const app = express()
 
-//Muestra en pantalla
-app.get("/", (peticion,respuesta) =>{
-    respuesta.send("Hello, World")
-})
-/* app.post("/post",(req,res)=>{
-    res.send("Metodo Post")
-}) */
+//importando router
+const users = require("./routes/users")
+
+//Usando router
+app.use(users) // Le decimos a user que utilice el router
+
+
 
 app.listen(port,()=>{
     console.log("Listening in: http://localhost:"+port)
